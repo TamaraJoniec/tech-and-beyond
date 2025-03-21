@@ -2,17 +2,65 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: #f5f6fa;
+  background-color: var(--primary-bg);
+  background-image: radial-gradient(circle at 5% 20%, rgba(112, 0, 255, 0.1) 0%, transparent 35%),
+    radial-gradient(circle at 95% 85%, rgba(0, 195, 255, 0.15) 0%, transparent 40%);
+  background-attachment: fixed;
+  color: var(--primary-text);
+  position: relative;
+  overflow: hidden;
+}
+
+.App::before {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(45deg, rgba(112, 0, 255, 0.05), rgba(0, 195, 255, 0.05));
+  border-radius: 50%;
+  filter: blur(80px);
+  top: -100px;
+  right: -100px;
+}
+
+.App::after {
+  content: "";
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  background: linear-gradient(45deg, rgba(0, 195, 255, 0.05), rgba(112, 0, 255, 0.05));
+  border-radius: 50%;
+  filter: blur(80px);
+  bottom: -100px;
+  left: -100px;
+  z-index: 0;
 }
 
 main {
   flex: 1;
-  padding: 20px;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* Optional: add a grid pattern overlay for more Web3 feel */
+main::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(rgba(99, 99, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(99, 99, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: -1;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+  filter: hue-rotate(45deg) saturate(1.5) drop-shadow(0 0 10px rgba(0, 195, 255, 0.6));
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -22,18 +70,43 @@ main {
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: rgba(20, 20, 35, 0.9);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: var(--primary-text);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(99, 99, 255, 0.2);
+  backdrop-filter: blur(10px);
 }
 
 .App-link {
-  color: #61dafb;
+  color: var(--accent-blue);
+  text-decoration: none;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.App-link:hover {
+  color: #5e42f5;
+}
+
+.App-link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--accent-purple), var(--accent-blue));
+  bottom: -2px;
+  left: 0;
+  transition: width 0.3s ease;
+}
+
+.App-link:hover::after {
+  width: 100%;
 }
 
 @keyframes App-logo-spin {
