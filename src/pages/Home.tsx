@@ -26,6 +26,7 @@ const Home: React.FC = () => {
   const [lastUpdated, setLastUpdated] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [pollCount, setPollCount] = useState<number>(0);
+  const [searchTerm, setSearchTerm] = useState<string>("");
 
   // Load markdown posts
   useEffect(() => {
@@ -60,7 +61,18 @@ const Home: React.FC = () => {
 
   // Function to load all blog posts
   const getAllBlogPosts = (): BlogPost[] => {
-    return [...markdownPosts];
+    const allPosts = [...markdownPosts];
+    // Filter to only include posts by Tamara Joniec
+    const tamaraPosts = allPosts.filter((post) => post.author === "Tamara Joniec");
+
+    // If there's a search term, filter the posts
+    if (searchTerm.trim() !== "") {
+      return tamaraPosts.filter(
+        (post) => post.title.toLowerCase().includes(searchTerm.toLowerCase()) || post.excerpt.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    }
+
+    return tamaraPosts;
   };
 
   // Function to fetch articles from Drupal API
@@ -96,9 +108,9 @@ const Home: React.FC = () => {
     }
   };
 
-  // Handle manual refresh
-  const handleRefresh = () => {
-    loadDrupalArticles();
+  // Handle search input changes
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(e.target.value);
   };
 
   useEffect(() => {
@@ -133,65 +145,66 @@ const Home: React.FC = () => {
     return () => clearInterval(intervalId);
   }, []);
 
+  // Get the filtered blog posts
+  const filteredPosts = getAllBlogPosts();
+
   return (
     <div className="home-container">
       <h1>Latest Blog Posts</h1>
 
-      <div
-        className="status-bar"
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          margin: "10px 0",
-        }}>
-        <div>
-          {markdownLoading && <div style={{ color: "blue" }}>Loading markdown posts...</div>}
-          {markdownError && (
-            <div className="error-message" style={{ color: "red" }}>
-              Error loading markdown: {markdownError}
-            </div>
-          )}
-        </div>
-
-        <button
-          onClick={handleRefresh}
-          disabled={isLoading}
-          style={{
-            padding: "8px 16px",
-            backgroundColor: "#4CAF50",
-            color: "white",
-            border: "none",
-            borderRadius: "4px",
-            cursor: isLoading ? "not-allowed" : "pointer",
-            opacity: isLoading ? 0.7 : 1,
-          }}>
-          {isLoading ? "Refreshing..." : "Refresh Now"}
-        </button>
+      <div className="search-container">
+        <input
+          type="text"
+          placeholder="Search articles..."
+          value={searchTerm}
+          onChange={handleSearchChange}
+          className="search-input"
+          aria-label="Search articles"
+        />
+        {searchTerm && (
+          <button className="clear-search" onClick={() => setSearchTerm("")} aria-label="Clear search">
+            ×
+          </button>
+        )}
       </div>
-
       <div className="blog-grid">
-        {getAllBlogPosts().map((blog) => (
-          <div key={blog.id} className="blog-card">
-            <img src={blog.imageUrl || blog.coverImage} alt={blog.title} className="blog-image" />
-            <div className="blog-content">
-              <h2>
-                {blog.slug ? (
-                  <Link to={`/blog/${blog.slug}`} style={{ textDecoration: "none", color: "inherit" }}>
-                    {blog.title}
-                  </Link>
-                ) : (
-                  blog.title
-                )}
-              </h2>
-              <p>{blog.excerpt}</p>
-              <div className="blog-meta">
-                <span className="blog-date">{blog.date}</span>
-                <span className="blog-author">By: {blog.author}</span>
+        {filteredPosts.length > 0 ? (
+          filteredPosts.map((blog) => (
+            <div key={blog.id} className="blog-card">
+              <img src={blog.imageUrl || blog.coverImage} alt={blog.title} className="blog-image" />
+              <div className="blog-content">
+                <h2>
+                  {blog.slug ? (
+                    <Link to={`/blog/${blog.slug}`} style={{ textDecoration: "none", color: "inherit" }}>
+                      {blog.title}
+                    </Link>
+                  ) : (
+                    blog.title
+                  )}
+                </h2>
+                <p>{blog.excerpt}</p>
+                <div className="blog-meta">
+                  <span className="blog-date">{blog.date}</span>
+                  {blog.author && <span className="blog-author">By: {blog.author}</span>}
+                </div>
               </div>
             </div>
+          ))
+        ) : (
+          <div className="no-posts-message">
+            {searchTerm ? (
+              <>
+                <h2>No matching articles found</h2>
+                <p>Try different search terms or clear the search to see all articles.</p>
+              </>
+            ) : (
+              <>
+                <h2>No articles found</h2>
+                <p>There are currently no blog posts to display. Please check back later!</p>
+              </>
+            )}
           </div>
-        ))}
+        )}
       </div>
     </div>
   );
