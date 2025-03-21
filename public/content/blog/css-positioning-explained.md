@@ -1,19 +1,19 @@
 ---
 title: CSS Positioning Explained
 slug: css-positioning-explained
-date: 2024-03-05
-excerpt: Learn the different CSS positioning methods and when to use each one.
+date: 05/03/2024
+excerpt: Learn about CSS positioning and how to use each type effectively.
 coverImage: https://picsum.photos/800/400?random=4
 author: Tamara Joniec
 ---
 
 # CSS Positioning Explained
 
-Alright, let’s have a proper chat about CSS positioning. If you've ever tried to move something on a webpage and it ended up in some bizarre, unexpected place, you’re not alone. CSS positioning can be a bit of a headache, but once you get the hang of it, you’ll be placing elements like a pro.
+Alright, let's have a proper chat about CSS positioning. If you've ever tried to move something on a webpage and it ended up in some bizarre, unexpected place, you're not alone. CSS positioning can be a bit of a headache, but once you get the hang of it, you'll be placing elements like a pro.
 
 ## Static Positioning: The Default One
 
-Static positioning is like that one friend who never changes their routine. It’s the default for all elements, meaning they just follow the normal document flow and don’t respond to positioning properties like `top`, `left`, `right`, or `z-index`.
+Static positioning is like that one friend who never changes their routine. It's the default for all elements, meaning they just follow the normal document flow and don't respond to positioning properties like `top`, `left`, `right`, or `z-index`.
 
 ```css
 .element {
@@ -85,7 +85,7 @@ Fixed positioning is like that one mate who refuses to move from their favourite
 ### Key Features:
 
 - Sticks to a fixed spot on the screen (relative to the viewport)
-- Doesn’t move when the page scrolls
+- Doesn't move when the page scrolls
 - Removed from the normal document flow
 - Often used for sticky navbars, floating buttons, or chat widgets
 
@@ -110,9 +110,9 @@ Sticky positioning is the best of both worlds – it behaves like a relatively p
 
 ---
 
-## Z-Index: Who’s on Top?
+## Z-Index: Who's on Top?
 
-If you've ever had an element disappear _behind_ something else when it shouldn’t, that’s where `z-index` comes in. It controls which elements sit on top of others.
+If you've ever had an element disappear _behind_ something else when it shouldn't, that's where `z-index` comes in. It controls which elements sit on top of others.
 
 ```css
 .element {
@@ -137,10 +137,10 @@ If you've ever had an element disappear _behind_ something else when it shouldn�
 - **Use `fixed`** for elements that should stay visible on scroll
 - **Use `sticky`** for elements that should _stick_ at a certain point
 - **Keep `z-index` values organised** (increments of 10 work well)
-- **Don’t go wild with positioning** – too much can make your layout unpredictable
+- **Don't go wild with positioning** – too much can make your layout unpredictable
 
 ---
 
 ## Final Thoughts
 
-Mastering CSS positioning takes a bit of trial and error, but once you get the hang of it, you’ll be placing elements exactly where you want them. So next time your button mysteriously vanishes behind another element, you’ll know exactly how to fix it. Happy coding! 🚀
+Mastering CSS positioning takes a bit of trial and error, but once you get the hang of it, you'll be placing elements exactly where you want them. So next time your button mysteriously vanishes behind another element, you'll know exactly how to fix it. Happy coding! 🚀

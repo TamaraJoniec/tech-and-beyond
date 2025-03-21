@@ -144,31 +144,12 @@ const Home: React.FC = () => {
           justifyContent: "space-between",
           alignItems: "center",
           margin: "10px 0",
-        }}
-      >
+        }}>
         <div>
-          {markdownLoading && (
-            <div style={{ color: "blue" }}>Loading markdown posts...</div>
-          )}
+          {markdownLoading && <div style={{ color: "blue" }}>Loading markdown posts...</div>}
           {markdownError && (
             <div className="error-message" style={{ color: "red" }}>
               Error loading markdown: {markdownError}
-            </div>
-          )}
-          {lastUpdated && (
-            <div
-              className="last-updated"
-              style={{ fontSize: "0.9em", color: "#666" }}
-            >
-              API last updated: {lastUpdated} (Poll count: {pollCount})
-            </div>
-          )}
-          {isLoading && (
-            <div style={{ color: "blue" }}>Loading API articles...</div>
-          )}
-          {fetchError && (
-            <div className="error-message" style={{ color: "red" }}>
-              API Error: {fetchError}
             </div>
           )}
         </div>
@@ -184,8 +165,7 @@ const Home: React.FC = () => {
             borderRadius: "4px",
             cursor: isLoading ? "not-allowed" : "pointer",
             opacity: isLoading ? 0.7 : 1,
-          }}
-        >
+          }}>
           {isLoading ? "Refreshing..." : "Refresh Now"}
         </button>
       </div>
@@ -193,18 +173,11 @@ const Home: React.FC = () => {
       <div className="blog-grid">
         {getAllBlogPosts().map((blog) => (
           <div key={blog.id} className="blog-card">
-            <img
-              src={blog.imageUrl || blog.coverImage}
-              alt={blog.title}
-              className="blog-image"
-            />
+            <img src={blog.imageUrl || blog.coverImage} alt={blog.title} className="blog-image" />
             <div className="blog-content">
               <h2>
                 {blog.slug ? (
-                  <Link
-                    to={`/blog/${blog.slug}`}
-                    style={{ textDecoration: "none", color: "inherit" }}
-                  >
+                  <Link to={`/blog/${blog.slug}`} style={{ textDecoration: "none", color: "inherit" }}>
                     {blog.title}
                   </Link>
                 ) : (
@@ -214,25 +187,7 @@ const Home: React.FC = () => {
               <p>{blog.excerpt}</p>
               <div className="blog-meta">
                 <span className="blog-date">{blog.date}</span>
-                <div
-                  style={{
-                    marginLeft: "0px",
-                    fontSize: "0.8em",
-                    color: "#888",
-                  }}
-                >
-                  {blog.author && (
-                    <span className="blog-author">By {blog.author}</span>
-                  )}
-                  {/* {blog.source && (
-                    <span
-                      className="blog-source"
-                      style={{ marginLeft: blog.author ? "10px" : "0" }}
-                    >
-                      Source: {blog.source}
-                    </span>
-                  )} */}
-                </div>
+                <span className="blog-author">By: {blog.author}</span>
               </div>
             </div>
           </div>

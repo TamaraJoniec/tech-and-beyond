@@ -1,15 +1,15 @@
 ---
 title: CSS Typography Best Practices
 slug: css-typography-best-practices
-date: 2024-03-04
-excerpt: Learn how to create readable, accessible, and beautiful typography with CSS.
+date: 04/03/2024
+excerpt: Master CSS typography with these essential best practices.
 coverImage: https://picsum.photos/800/400?random=5
 author: Tamara Joniec
 ---
 
 # CSS Typography Best Practices
 
-Typography is a big deal in web design. Get it right, and your site looks sleek and professional. Get it wrong, and people will click away faster than I do when I see a ‘Low Battery’ warning. Here’s how to nail it with CSS, from someone who’s been wrangling fonts longer than she cares to admit.
+Typography is a big deal in web design. Get it right, and your site looks sleek and professional. Get it wrong, and people will click away faster than I do when I see a 'Low Battery' warning. Here's how to nail it with CSS, from someone who's been wrangling fonts longer than she cares to admit.
 
 ## Font Selection
 
@@ -32,7 +32,7 @@ body {
 ### Limit Font Families
 
 - No need to go mad – 2-3 font families max.
-- Usually, one for headings, one for body text, and maybe one for that ‘quirky’ section you insist on keeping.
+- Usually, one for headings, one for body text, and maybe one for that 'quirky' section you insist on keeping.
 
 ## Font Size and Responsiveness
 
@@ -77,7 +77,7 @@ h3 {
 
 ## Text Spacing
 
-### Don’t Cram Everything Together
+### Don't Cram Everything Together
 
 ```css
 p {
@@ -104,7 +104,7 @@ body {
   background-color: #fff;
 }
 
-/* If you’re fancy and support dark mode */
+/* If you're fancy and support dark mode */
 @media (prefers-color-scheme: dark) {
   body {
     color: #f0f0f0;
@@ -149,7 +149,7 @@ body {
 
 ## Letter Spacing
 
-### Don’t Squash or Stretch Your Letters Too Much
+### Don't Squash or Stretch Your Letters Too Much
 
 ```css
 h1,
@@ -180,7 +180,7 @@ a:hover {
 
 ## Accessibility
 
-### Don’t Be That Person Who Ignores Accessibility
+### Don't Be That Person Who Ignores Accessibility
 
 ```css
 p {
@@ -219,6 +219,6 @@ h1 {
 
 ## Conclusion
 
-Typography isn’t just about picking a nice font and calling it a day. Get the sizing, spacing, and contrast right, and your users will thank you (or at least not complain). Test it across different screens, and remember: Comic Sans is never an option.
+Typography isn't just about picking a nice font and calling it a day. Get the sizing, spacing, and contrast right, and your users will thank you (or at least not complain). Test it across different screens, and remember: Comic Sans is never an option.
 
 Now, off you go—make the internet a more readable place!

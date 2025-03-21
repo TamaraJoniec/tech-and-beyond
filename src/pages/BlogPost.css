@@ -196,3 +196,27 @@
   font-style: italic;
   font-weight: 500;
 }
+
+.blog-post-content pre code .hljs-attr[class*="aria-"],
+.blog-post-content pre code .hljs-attr[class*="role"] {
+  color: #ff9d00;
+  font-weight: bold;
+}
+
+.blog-post-content pre code .hljs-string {
+  color: #ff5e8f;
+}
+
+.blog-post-content pre code .hljs-keyword,
+.blog-post-content pre code .hljs-tag {
+  color: #42c6ff;
+}
+
+.blog-post-content pre code .hljs-name {
+  color: #9e86ff;
+}
+
+.blog-post-content pre code .hljs-comment {
+  color: #7a7a9d;
+  font-style: italic;
+}

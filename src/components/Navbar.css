@@ -103,46 +103,13 @@
   width: 100%;
 }
 
-.connect-wallet-btn {
-  background: linear-gradient(45deg, #5e42f5, #00c3ff);
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 50px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  box-shadow: 0 5px 15px rgba(94, 66, 245, 0.4);
-  font-size: 1rem;
-  margin-left: 15px;
-  position: relative;
-  overflow: hidden;
+.admin-link {
+  color: #00c3ff;
+  font-weight: 500;
 }
 
-.connect-wallet-btn::before {
-  content: "";
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: linear-gradient(45deg, #7000ff, #00c3ff, #7000ff);
-  z-index: -1;
-  border-radius: 50px;
-  background-size: 300%;
-  animation: borderAnimation 3s linear infinite;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.connect-wallet-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(94, 66, 245, 0.6);
-}
-
-.connect-wallet-btn:hover::before {
-  opacity: 1;
+.admin-link::after {
+  background: linear-gradient(90deg, #00c3ff, #7000ff);
 }
 
 @keyframes borderAnimation {

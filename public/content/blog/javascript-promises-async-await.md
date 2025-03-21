@@ -1,9 +1,9 @@
 ---
-title: JavaScript Promises and Async/Await
+title: JavaScript Promises & Async/Await
 slug: javascript-promises-async-await
-date: 2024-02-26
-excerpt: Master asynchronous JavaScript with Promises and async/await patterns.
-coverImage: https://picsum.photos/800/400?random=11
+date: 21/03/2024
+excerpt: Master asynchronous JavaScript with Promises and async/await syntax.
+coverImage: https://picsum.photos/800/400?random=2
 author: Tamara Joniec
 ---
 

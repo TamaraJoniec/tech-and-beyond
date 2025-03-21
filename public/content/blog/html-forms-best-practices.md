@@ -1,15 +1,15 @@
 ---
 title: HTML Forms Best Practices
 slug: html-forms-best-practices
-date: 2024-03-02
-excerpt: Learn how to create effective, accessible, and user-friendly forms with HTML.
+date: 02/03/2024
+excerpt: Create usable and accessible HTML forms with these best practices.
 coverImage: https://picsum.photos/800/400?random=7
 author: Tamara Joniec
 ---
 
 # HTML Forms Best Practices: Make Forms Less of a Headache
 
-We all know forms can be a pain, but they’re also a crucial part of your site. Get them right, and users will breeze through like it’s no big deal. Get them wrong, and you’ve got a recipe for frustration (and probably a couple of abandoned carts). Let’s make your forms shine with some best practices.
+We all know forms can be a pain, but they're also a crucial part of your site. Get them right, and users will breeze through like it's no big deal. Get them wrong, and you've got a recipe for frustration (and probably a couple of abandoned carts). Let's make your forms shine with some best practices.
 
 ---
 
@@ -27,7 +27,7 @@ We all know forms can be a pain, but they’re also a crucial part of your site.
 </form>
 ```
 
-First rule of form club: use the `<form>` element to wrap your form. No, seriously. Stick to semantic elements like `<fieldset>` to group things together, so your form’s got some structure, not just a bunch of random inputs thrown in.
+First rule of form club: use the `<form>` element to wrap your form. No, seriously. Stick to semantic elements like `<fieldset>` to group things together, so your form's got some structure, not just a bunch of random inputs thrown in.
 
 ---
 
@@ -92,7 +92,7 @@ Different types for different jobs. Use the right input type for the job, and yo
 <input type="email" name="email" id="email" />
 ```
 
-Labels are not optional. Don’t skip them. Seriously. Labels make forms more accessible, and they help users understand what they need to fill out. Wrapping input in a `<label>` or using the `for` attribute will save you headaches later.
+Labels are not optional. Don't skip them. Seriously. Labels make forms more accessible, and they help users understand what they need to fill out. Wrapping input in a `<label>` or using the `for` attribute will save you headaches later.
 
 ### Use ARIA Attributes When Needed
 
@@ -102,7 +102,7 @@ Labels are not optional. Don’t skip them. Seriously. Labels make forms more ac
 <div id="password-requirements" class="helper-text">Password must be at least 8 characters</div>
 ```
 
-If your form needs some extra help for users with disabilities, don’t skip ARIA attributes. They’re there to make your form accessible to everyone—so give them the love they deserve.
+If your form needs some extra help for users with disabilities, don't skip ARIA attributes. They're there to make your form accessible to everyone—so give them the love they deserve.
 
 ---
 
@@ -118,7 +118,7 @@ If your form needs some extra help for users with disabilities, don’t skip ARI
 <input type="number" name="age" min="18" max="99" />
 ```
 
-HTML5 validation is your best friend. Make sure you’re using `required`, `minlength`, `pattern`, and other validation attributes to keep users from submitting nonsense. It saves you time, and it saves them embarrassment.
+HTML5 validation is your best friend. Make sure you're using `required`, `minlength`, `pattern`, and other validation attributes to keep users from submitting nonsense. It saves you time, and it saves them embarrassment.
 
 ### Add Custom Validation Messages
 
@@ -126,7 +126,7 @@ HTML5 validation is your best friend. Make sure you’re using `required`, `minl
 <input type="text" name="username" required oninvalid="this.setCustomValidity('Please enter your username')" oninput="this.setCustomValidity('')" />
 ```
 
-Don’t just throw a generic error message at users. Be specific. Let them know exactly what went wrong. Clear messages lead to fewer “What did I do wrong?” moments.
+Don't just throw a generic error message at users. Be specific. Let them know exactly what went wrong. Clear messages lead to fewer "What did I do wrong?" moments.
 
 ---
 
@@ -142,7 +142,7 @@ Don’t just throw a generic error message at users. Be specific. Let them know 
 <input type="text" placeholder="First Name" />
 ```
 
-Placeholders are helpful. But don’t be that person who uses them _instead_ of labels. Placeholders are for guidance, labels are for proper form functionality. Keep ‘em both.
+Placeholders are helpful. But don't be that person who uses them _instead_ of labels. Placeholders are for guidance, labels are for proper form functionality. Keep 'em both.
 
 ### Show Clear Error Messages
 
@@ -154,7 +154,7 @@ Placeholders are helpful. But don’t be that person who uses them _instead_ of 
 </div>
 ```
 
-No one likes cryptic error messages. Give users clear feedback when they mess up. It’ll keep them from hitting that back button and never coming back.
+No one likes cryptic error messages. Give users clear feedback when they mess up. It'll keep them from hitting that back button and never coming back.
 
 ### Group Related Fields
 
@@ -190,7 +190,7 @@ No one likes cryptic error messages. Give users clear feedback when they mess up
 </fieldset>
 ```
 
-Group related fields together. You don’t need to make your users feel like they’re filling out a government document. Organize fields so people can zip through without getting confused.
+Group related fields together. You don't need to make your users feel like they're filling out a government document. Organize fields so people can zip through without getting confused.
 
 ---
 
@@ -225,7 +225,7 @@ For mobile users, the right input mode can make all the difference. `inputmode="
 <input type="text" name="cc-number" autocomplete="cc-number" />
 ```
 
-Autofill is your friend. Let browsers fill out the details when they can. It’s one less thing your users have to do, and they’ll love you for it.
+Autofill is your friend. Let browsers fill out the details when they can. It's one less thing your users have to do, and they'll love you for it.
 
 ---
 
@@ -233,7 +233,7 @@ Autofill is your friend. Let browsers fill out the details when they can. It’s
 
 ### Use HTTPS
 
-If you’re not using HTTPS for form submissions, what are you even doing? Always secure your forms. It’s a no-brainer.
+If you're not using HTTPS for form submissions, what are you even doing? Always secure your forms. It's a no-brainer.
 
 ### Protect Against CSRF
 
@@ -248,10 +248,10 @@ Don't get caught out. Use tokens to prevent CSRF attacks. No one likes a hacker 
 
 ### Sanitize and Validate on the Server
 
-Client-side validation is cute, but it’s not enough. Always sanitize and validate data on the server side. Better safe than sorry, right?
+Client-side validation is cute, but it's not enough. Always sanitize and validate data on the server side. Better safe than sorry, right?
 
 ---
 
 ## Conclusion
 
-Forms are often where the magic happens—whether it's signing up for a newsletter, completing a checkout, or submitting a contact form. Follow these best practices, and you’ll create forms that are not only functional but user-friendly, secure, and accessible. Now get to work and turn those forms into a smooth experience your users will actually enjoy (well, as much as anyone can enjoy filling out a form).
+Forms are often where the magic happens—whether it's signing up for a newsletter, completing a checkout, or submitting a contact form. Follow these best practices, and you'll create forms that are not only functional but user-friendly, secure, and accessible. Now get to work and turn those forms into a smooth experience your users will actually enjoy (well, as much as anyone can enjoy filling out a form).

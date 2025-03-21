@@ -1,15 +1,15 @@
 ---
 title: JavaScript Array Methods
 slug: javascript-array-methods
-date: 2024-02-28
-excerpt: An in-depth guide to the most useful array methods in JavaScript.
+date: 28/02/2024
+excerpt: A comprehensive guide to JavaScript array methods and when to use them.
 coverImage: https://picsum.photos/800/400?random=9
 author: Tamara Joniec
 ---
 
 # JavaScript Array Methods: A Comprehensive Guide
 
-Arrays are like the Swiss Army knives of JavaScript—they’re super versatile and ready to handle all kinds of data manipulation. In this guide, we’re going to cover the must-know array methods so you can work with arrays like a pro and make your code cleaner, faster, and more fun.
+Arrays are like the Swiss Army knives of JavaScript—they're super versatile and ready to handle all kinds of data manipulation. In this guide, we're going to cover the must-know array methods so you can work with arrays like a pro and make your code cleaner, faster, and more fun.
 
 ---
 
@@ -35,7 +35,7 @@ const fromSet = Array.from(new Set([1, 2, 2, 3])); // [1, 2, 3]
 const ofArray = Array.of(5); // [5], different from new Array(5)
 ```
 
-Creating arrays is pretty straightforward, but there are different ways to do it depending on your needs. The most common (and recommended) approach is the array literal syntax. But hey, don’t be afraid to experiment with other options like `Array.from()` if you need to convert something else into an array.
+Creating arrays is pretty straightforward, but there are different ways to do it depending on your needs. The most common (and recommended) approach is the array literal syntax. But hey, don't be afraid to experiment with other options like `Array.from()` if you need to convert something else into an array.
 
 ---
 
@@ -130,7 +130,7 @@ const repeatedNumbers = [1, 2, 3, 2, 5];
 repeatedNumbers.lastIndexOf(2); // 3
 ```
 
-Looking for something in an array? Use `find()` to grab the first match, `findIndex()` to get the position, or `includes()` and `indexOf()` if you just want to check if something’s there.
+Looking for something in an array? Use `find()` to grab the first match, `findIndex()` to get the position, or `includes()` and `indexOf()` if you just want to check if something's there.
 
 ---
 
@@ -219,7 +219,7 @@ const people = [
 people.sort((a, b) => a.age - b.age); // Sort by age
 ```
 
-Sorting is a breeze with `sort()`, whether you’re working with strings, numbers, or even objects. Just be sure to pass in the right sorting function for your data!
+Sorting is a breeze with `sort()`, whether you're working with strings, numbers, or even objects. Just be sure to pass in the right sorting function for your data!
 
 ---
 
@@ -272,7 +272,7 @@ const middle = numbers.slice(1, 4);
 // [2, 3, 4]
 ```
 
-If you want to create a new array from existing ones, you’ve got options. `concat()` and the spread operator (`...`) both do the job. And if you just need a slice of the action, `slice()` can help you out.
+If you want to create a new array from existing ones, you've got options. `concat()` and the spread operator (`...`) both do the job. And if you just need a slice of the action, `slice()` can help you out.
 
 ---
 
@@ -339,4 +339,4 @@ const inventory = [
 
 ## Conclusion
 
-JavaScript arrays are like your toolbox for handling all sorts of data. Whether you’re adding, removing, or transforming elements, these methods have got your back. By mastering these array techniques, you’ll write more efficient, readable, and maintainable JavaScript code. So go ahead, put those arrays to work and make your code shine!
+JavaScript arrays are like your toolbox for handling all sorts of data. Whether you're adding, removing, or transforming elements, these methods have got your back. By mastering these array techniques, you'll write more efficient, readable, and maintainable JavaScript code. So go ahead, put those arrays to work and make your code shine!

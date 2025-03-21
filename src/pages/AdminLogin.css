@@ -1,0 +1,107 @@
+.admin-login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 120px);
+  padding: 2rem;
+  background-color: rgba(15, 15, 25, 0.9);
+}
+
+.admin-login-card {
+  width: 100%;
+  max-width: 500px;
+  padding: 2.5rem;
+  background: rgba(20, 20, 35, 0.8);
+  border-radius: 1rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(99, 99, 255, 0.2);
+}
+
+.admin-login-card h1 {
+  margin-bottom: 1.5rem;
+  color: white;
+  text-align: center;
+  font-size: 2rem;
+  background: linear-gradient(45deg, #5e42f5, #00c3ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #c0c0d8;
+  font-size: 1rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid rgba(99, 99, 255, 0.3);
+  border-radius: 0.5rem;
+  background-color: rgba(30, 30, 50, 0.5);
+  color: white;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+  border-color: #5e42f5;
+  box-shadow: 0 0 10px rgba(94, 66, 245, 0.3);
+}
+
+.login-button {
+  width: 100%;
+  padding: 0.8rem;
+  margin-top: 1rem;
+  background: linear-gradient(45deg, #5e42f5, #00c3ff);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.login-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(94, 66, 245, 0.4);
+}
+
+.login-button:disabled {
+  background: gray;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.error-message {
+  padding: 0.8rem;
+  margin-bottom: 1.5rem;
+  background-color: rgba(255, 50, 50, 0.1);
+  border: 1px solid rgba(255, 50, 50, 0.3);
+  border-radius: 0.5rem;
+  color: #ff5e5e;
+  text-align: center;
+}
+
+.login-info {
+  margin-top: 2rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #c0c0d8;
+  font-size: 0.9rem;
+}
+
+.login-info p {
+  margin: 0.2rem 0;
+  text-align: center;
+}

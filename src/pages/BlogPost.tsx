@@ -70,9 +70,7 @@ const BlogPost: React.FC = () => {
         <h1>{post.title}</h1>
         <div className="blog-post-meta">
           <span className="blog-post-date">{post.date}</span>
-          {post.author && (
-            <span className="blog-post-author">By: {post.author}</span>
-          )}
+          {post.author && <span className="blog-post-author">By: {post.author}</span>}
           <span className="blog-post-source">Source: {post.source}</span>
         </div>
       </div>
@@ -84,11 +82,7 @@ const BlogPost: React.FC = () => {
       )}
 
       <div className="blog-post-content">
-        <ReactMarkdown
-          rehypePlugins={[rehypeRaw, rehypeSanitize, rehypeHighlight]}
-        >
-          {post.content}
-        </ReactMarkdown>
+        <ReactMarkdown rehypePlugins={[rehypeRaw, rehypeSanitize, rehypeHighlight]}>{post.content}</ReactMarkdown>
       </div>
     </div>
   );

@@ -1,21 +1,21 @@
 ---
 title: HTML5 Page Structure
 slug: html5-page-structure
-date: 2024-03-01
-excerpt: Learn how to structure HTML5 pages with semantic elements for better accessibility and SEO.
+date: 01/03/2024
+excerpt: Learn how to structure HTML5 pages for better organization and SEO.
 coverImage: https://picsum.photos/800/400?random=8
 author: Tamara Joniec
 ---
 
 # HTML5 Page Structure: Making Your Site Smarter, One Tag at a Time
 
-Let’s face it—getting your page structure right in HTML5 isn’t exactly the most exciting part of web development. But trust us, it’s essential! A solid structure will make your site more accessible, SEO-friendly, and easier to maintain. Let’s dive in and learn how to make your web pages smarter, without losing your sanity.
+Let's face it—getting your page structure right in HTML5 isn't exactly the most exciting part of web development. But trust us, it's essential! A solid structure will make your site more accessible, SEO-friendly, and easier to maintain. Let's dive in and learn how to make your web pages smarter, without losing your sanity.
 
 ---
 
 ## The Bare Essentials: Basic HTML5 Template
 
-First thing’s first: every HTML5 page needs to start with a clean slate. Here’s the basic structure you should always use:
+First thing's first: every HTML5 page needs to start with a clean slate. Here's the basic structure you should always use:
 
 ```html
 <!DOCTYPE html>
@@ -34,7 +34,7 @@ First thing’s first: every HTML5 page needs to start with a clean slate. Here�
 </html>
 ```
 
-That’s the backbone of every modern web page. It’s clean, it’s tidy, and it sets you up for success.
+That's the backbone of every modern web page. It's clean, it's tidy, and it sets you up for success.
 
 ---
 
@@ -55,7 +55,7 @@ The `<header>` element should be used for your intro stuff: the page title, logo
 
 ### Navigation: Keep Users Moving
 
-This one’s a no-brainer. The `<nav>` element wraps your site’s navigation links. It helps browsers and screen readers understand where to find the site’s menu.
+This one's a no-brainer. The `<nav>` element wraps your site's navigation links. It helps browsers and screen readers understand where to find the site's menu.
 
 ```html
 <nav>
@@ -70,7 +70,7 @@ This one’s a no-brainer. The `<nav>` element wraps your site’s navigation li
 
 ### Main Content: Where the Action Happens
 
-Your main content should go inside the `<main>` element. It’s the star of the show and tells browsers and users, “Hey, this is the real deal.”
+Your main content should go inside the `<main>` element. It's the star of the show and tells browsers and users, "Hey, this is the real deal."
 
 ```html
 <main>
@@ -100,7 +100,7 @@ Each piece of content that stands alone (like blog posts, news articles, or prod
 
 ### Section: For Organized Grouping
 
-Need to break up your content into logical sections? Use the `<section>` tag. It’s perfect for grouping related content and adding structure.
+Need to break up your content into logical sections? Use the `<section>` tag. It's perfect for grouping related content and adding structure.
 
 ```html
 <section>
@@ -125,7 +125,7 @@ Got some side notes, related articles, or maybe an advertisement? The `<aside>` 
 
 ### Footer: Closing the Deal
 
-Your footer isn’t just for legal links. It can include anything from contact info to social media buttons.
+Your footer isn't just for legal links. It can include anything from contact info to social media buttons.
 
 ```html
 <footer>
@@ -164,7 +164,7 @@ For any date or time info, the `<time>` element is your best friend. It gives yo
 
 ### Mark: Highlight Important Info
 
-Need to highlight something in the text? Use the `<mark>` element. It’s like highlighting in a textbook, but for your website.
+Need to highlight something in the text? Use the `<mark>` element. It's like highlighting in a textbook, but for your website.
 
 ```html
 <p>The most <mark>important</mark> part of this article is...</p>
@@ -177,7 +177,7 @@ Want to hide some content until the user asks for it? Use the `<details>` and `<
 ```html
 <details>
   <summary>Click to learn more</summary>
-  <p>Here’s the hidden content.</p>
+  <p>Here's the hidden content.</p>
 </details>
 ```
 
@@ -185,7 +185,7 @@ Want to hide some content until the user asks for it? Use the `<details>` and `<
 
 ## Putting It All Together: A Complete Page Example
 
-Now, let’s see how these elements come together in a real HTML5 page:
+Now, let's see how these elements come together in a real HTML5 page:
 
 ```html
 <!DOCTYPE html>
@@ -245,7 +245,7 @@ Now, let’s see how these elements come together in a real HTML5 page:
 
         <details>
           <summary>Click for More Info</summary>
-          <p>Here’s some extra info.</p>
+          <p>Here's some extra info.</p>
         </details>
       </aside>
     </main>
@@ -269,6 +269,6 @@ Now, let’s see how these elements come together in a real HTML5 page:
 
 ## Why You Should Care About Semantic HTML5
 
-By using semantic HTML5 elements, you’re not just making your website look nice—you’re making it easier for search engines, screen readers, and even future developers to understand what’s going on. Plus, the page is more accessible, more SEO-friendly, and just easier to maintain.
+By using semantic HTML5 elements, you're not just making your website look nice—you're making it easier for search engines, screen readers, and even future developers to understand what's going on. Plus, the page is more accessible, more SEO-friendly, and just easier to maintain.
 
 So go ahead, use the right elements in the right place, and make your web pages smarter. Trust us, your users—and your future self—will thank you.

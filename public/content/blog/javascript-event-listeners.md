@@ -1,8 +1,8 @@
 ---
 title: JavaScript Event Listeners
 slug: javascript-event-listeners
-date: 2024-02-27
-excerpt: Learn how to handle DOM events effectively using JavaScript event listeners.
+date: 27/02/2024
+excerpt: Learn how to use JavaScript event listeners to create interactive web pages.
 coverImage: https://picsum.photos/800/400?random=10
 author: Tamara Joniec
 ---
@@ -13,7 +13,7 @@ Event listeners are a key part of making web applications interactive. They allo
 
 ## What Are Events?
 
-In simple terms, events are actions or occurrences that happen in the browser. Things like a user clicking a button, pressing a key, or a page finishing loading are all events. JavaScript can “listen” for these events and run code in response.
+In simple terms, events are actions or occurrences that happen in the browser. Things like a user clicking a button, pressing a key, or a page finishing loading are all events. JavaScript can "listen" for these events and run code in response.
 
 ## Basic Syntax
 
@@ -152,7 +152,7 @@ You can stop an event from bubbling up by calling `stopPropagation()`:
 ```javascript
 button.addEventListener("click", function (event) {
   event.stopPropagation();
-  console.log("Button clicked, but event won’t reach body!");
+  console.log("Button clicked, but event won't reach body!");
 });
 ```
 
@@ -217,7 +217,7 @@ button.addEventListener("click", handleClick);
 button.removeEventListener("click", handleClick);
 ```
 
-Note: You can’t remove anonymous functions or arrow functions this way:
+Note: You can't remove anonymous functions or arrow functions this way:
 
 ```javascript
 button.addEventListener("click", function () {
@@ -275,7 +275,7 @@ document.dispatchEvent(customEvent);
 ## Best Practices
 
 1. **Use event delegation** for handling events on multiple similar elements.
-2. **Remove event listeners** when they're no longer needed, especially if you’re removing elements.
+2. **Remove event listeners** when they're no longer needed, especially if you're removing elements.
 3. **Avoid expensive operations** in frequently triggered events (like `scroll`, `resize`, or `mousemove`).
 4. **Throttle or debounce** performance-heavy event handlers.
 5. **Use passive event listeners** for touch and wheel events to improve scrolling performance.
@@ -287,6 +287,6 @@ The `addEventListener` method works in all modern browsers. For older browsers (
 
 ## Conclusion
 
-Event listeners are essential for making your web apps interactive. By understanding how events work, their propagation, and how to optimize event handling, you’ll be able to write more efficient and maintainable code.
+Event listeners are essential for making your web apps interactive. By understanding how events work, their propagation, and how to optimize event handling, you'll be able to write more efficient and maintainable code.
 
-Remember, good event handling isn’t just about responsiveness; it’s about performance, too! By using techniques like event delegation and throttling, you’ll ensure that your web apps are fast and smooth—even with lots of user interactions.
+Remember, good event handling isn't just about responsiveness; it's about performance, too! By using techniques like event delegation and throttling, you'll ensure that your web apps are fast and smooth—even with lots of user interactions.
