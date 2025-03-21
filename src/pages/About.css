@@ -2,12 +2,15 @@
   padding: 2rem;
   max-width: 800px;
   margin: 0 auto;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .about-container h1 {
   text-align: center;
-  color: #2c3e50;
+  color: #5e42f5;
   margin-bottom: 2rem;
+  font-size: 2.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .about-content {
@@ -17,19 +20,70 @@
 }
 
 .about-section {
-  background: white;
+  background: rgba(30, 30, 50, 0.9);
   padding: 2rem;
   border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(99, 99, 255, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .about-section h2 {
-  color: #2c3e50;
+  color: #a2bdff;
   margin-bottom: 1rem;
+  border-bottom: 2px solid rgba(94, 66, 245, 0.3);
+  padding-bottom: 0.5rem;
+  font-size: 1.8rem;
 }
 
 .about-section p {
-  color: #666;
-  line-height: 1.6;
+  color: #e0e0ff;
+  line-height: 1.8;
   margin: 0;
-} 
+  font-size: 1.05rem;
+}
+
+.team-members {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.team-member {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background: rgba(25, 25, 40, 0.6);
+  padding: 1.5rem;
+  border-radius: 6px;
+  border-left: 4px solid #5e42f5;
+}
+
+.team-member h3 {
+  color: #ffffff;
+  margin: 0 0 0.2rem 0;
+  font-size: 1.5rem;
+}
+
+.member-role {
+  color: #00eaff !important;
+  font-weight: 600;
+  margin: 0 0 0.8rem 0 !important;
+  font-size: 1rem !important;
+}
+
+@media (max-width: 600px) {
+  .about-container {
+    padding: 1.5rem;
+  }
+
+  .about-section {
+    padding: 1.5rem;
+  }
+}
