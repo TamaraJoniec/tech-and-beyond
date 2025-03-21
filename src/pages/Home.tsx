@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
-import { fetchDrupalArticles, getCachedDrupalArticles } from "../services/api";
 import { getAllPosts, BlogPost as MarkdownBlogPost } from "../utils/markdown";
 
-// Combined blog post type that can come from markdown or API
+// Blog post interface for consistency
 interface BlogPost {
   id: string | number;
   title: string;
@@ -18,24 +17,19 @@ interface BlogPost {
 }
 
 const Home: React.FC = () => {
-  const [markdownPosts, setMarkdownPosts] = useState<BlogPost[]>([]);
-  const [markdownLoading, setMarkdownLoading] = useState<boolean>(true);
-  const [markdownError, setMarkdownError] = useState<string | null>(null);
-  const [drupalArticles, setDrupalArticles] = useState<BlogPost[]>([]);
-  const [fetchError, setFetchError] = useState<string | null>(null);
-  const [lastUpdated, setLastUpdated] = useState<string>("");
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [pollCount, setPollCount] = useState<number>(0);
+  const [posts, setPosts] = useState<BlogPost[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState<string>("");
 
-  // Load markdown posts
+  // Load blog posts on component mount
   useEffect(() => {
-    async function loadMarkdownPosts() {
-      setMarkdownLoading(true);
+    async function loadPosts() {
       try {
-        // Get all posts from markdown data
-        const posts = await getAllPosts();
-        const formattedPosts = posts.map((post) => ({
+        const allPosts = await getAllPosts();
+
+        // Format posts for display
+        const formattedPosts = allPosts.map((post) => ({
           id: post.id,
           title: post.title,
           excerpt: post.excerpt,
@@ -46,107 +40,29 @@ const Home: React.FC = () => {
           author: post.author,
         }));
 
-        setMarkdownPosts(formattedPosts);
-        setMarkdownError(null);
-      } catch (error) {
-        console.error("Error loading markdown posts:", error);
-        setMarkdownError("Failed to load markdown posts");
+        // Only keep posts by Tamara Joniec
+        const tamaraPosts = formattedPosts.filter((post) => post.author === "Tamara Joniec");
+        setPosts(tamaraPosts);
+        setError(null);
+      } catch (err) {
+        console.error("Error loading posts:", err);
+        setError("Failed to load blog posts");
       } finally {
-        setMarkdownLoading(false);
+        setIsLoading(false);
       }
     }
 
-    loadMarkdownPosts();
+    loadPosts();
   }, []);
 
-  // Function to load all blog posts
-  const getAllBlogPosts = (): BlogPost[] => {
-    const allPosts = [...markdownPosts];
-    // Filter to only include posts by Tamara Joniec
-    const tamaraPosts = allPosts.filter((post) => post.author === "Tamara Joniec");
+  // Filter posts based on search term
+  const getFilteredPosts = (): BlogPost[] => {
+    if (searchTerm.trim() === "") return posts;
 
-    // If there's a search term, filter the posts
-    if (searchTerm.trim() !== "") {
-      return tamaraPosts.filter(
-        (post) => post.title.toLowerCase().includes(searchTerm.toLowerCase()) || post.excerpt.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-    }
-
-    return tamaraPosts;
+    return posts.filter((post) => post.title.toLowerCase().includes(searchTerm.toLowerCase()) || post.excerpt.toLowerCase().includes(searchTerm.toLowerCase()));
   };
 
-  // Function to fetch articles from Drupal API
-  const loadDrupalArticles = async () => {
-    setIsLoading(true);
-    try {
-      const result = await fetchDrupalArticles();
-
-      if (result.error) {
-        setFetchError(result.error);
-      } else {
-        setFetchError(null);
-        // Convert API blog posts to our unified format
-        const apiPosts: BlogPost[] = result.articles.map((post) => ({
-          id: post.id,
-          title: post.title,
-          excerpt: post.excerpt,
-          imageUrl: post.imageUrl,
-          date: post.date,
-          source: post.source || "drupal",
-          author: post.author || "Unknown",
-        }));
-        setDrupalArticles(apiPosts);
-        setLastUpdated(result.timestamp.toLocaleTimeString());
-        // Increment poll count to track how many times we've successfully fetched
-        setPollCount((prev) => prev + 1);
-      }
-    } catch (error) {
-      console.error("Unexpected error during article loading:", error);
-      setFetchError(error instanceof Error ? error.message : "Unknown error");
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  // Handle search input changes
-  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(e.target.value);
-  };
-
-  useEffect(() => {
-    // Try to load cached articles first
-    const cachedData = getCachedDrupalArticles();
-
-    if (cachedData) {
-      // Convert cached articles to our unified format
-      const cachedPosts: BlogPost[] = cachedData.articles.map((post) => ({
-        id: post.id,
-        title: post.title,
-        excerpt: post.excerpt,
-        imageUrl: post.imageUrl,
-        date: post.date,
-        source: post.source || "drupal",
-        author: post.author,
-      }));
-      setDrupalArticles(cachedPosts);
-      setLastUpdated(cachedData.timestamp.toLocaleTimeString());
-    }
-
-    // Fetch fresh articles immediately
-    loadDrupalArticles();
-
-    // Set up polling every minute
-    const intervalId = setInterval(() => {
-      console.log("Polling for new articles...");
-      loadDrupalArticles();
-    }, 60000); // 60000 ms = 1 minute
-
-    // Clean up the interval when the component unmounts
-    return () => clearInterval(intervalId);
-  }, []);
-
-  // Get the filtered blog posts
-  const filteredPosts = getAllBlogPosts();
+  const filteredPosts = getFilteredPosts();
 
   return (
     <div className="home-container">
@@ -157,7 +73,7 @@ const Home: React.FC = () => {
           type="text"
           placeholder="Search articles..."
           value={searchTerm}
-          onChange={handleSearchChange}
+          onChange={(e) => setSearchTerm(e.target.value)}
           className="search-input"
           aria-label="Search articles"
         />
@@ -167,21 +83,17 @@ const Home: React.FC = () => {
           </button>
         )}
       </div>
+
+      {isLoading && <div className="status-message">Loading posts...</div>}
+      {error && <div className="error-message">Error: {error}</div>}
+
       <div className="blog-grid">
         {filteredPosts.length > 0 ? (
           filteredPosts.map((blog) => (
             <div key={blog.id} className="blog-card">
               <img src={blog.imageUrl || blog.coverImage} alt={blog.title} className="blog-image" />
               <div className="blog-content">
-                <h2>
-                  {blog.slug ? (
-                    <Link to={`/blog/${blog.slug}`} style={{ textDecoration: "none", color: "inherit" }}>
-                      {blog.title}
-                    </Link>
-                  ) : (
-                    blog.title
-                  )}
-                </h2>
+                <h2>{blog.slug ? <Link to={`/blog/${blog.slug}`}>{blog.title}</Link> : blog.title}</h2>
                 <p>{blog.excerpt}</p>
                 <div className="blog-meta">
                   <span className="blog-date">{blog.date}</span>
