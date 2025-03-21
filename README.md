@@ -1,46 +1,121 @@
-# Getting Started with Create React App
+# Tech & Beyond
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, responsive blog platform showcasing web development articles and tutorials. Tech & Beyond is a passion project by Mike and Tamara Joniec, featuring content on both frontend and backend development.
 
-## Available Scripts
+![Tech & Beyond Blog](./public/demo.gif)
 
-In the project directory, you can run:
+## 🌟 Features
 
-### `npm start`
+- **Dual Content Sources**: Articles from both static Markdown files and Drupal CMS
+- **Responsive Design**: Modern, dark-themed UI that works across all devices
+- **Search Functionality**: Real-time article filtering
+- **Accessibility Focused**: WCAG compliant with optimized code snippets
+- **Admin Interface**: Private administrative dashboard
+- **SEO Optimized**: Properly structured content for search engines
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 🚀 Technologies
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- **Frontend**: React with TypeScript
+- **Styling**: CSS with modern techniques (Grid, Flexbox, Animations)
+- **CMS**: Drupal with JSON:API
+- **Content**: Markdown with frontmatter
+- **Routing**: React Router for client-side navigation
+- **Syntax Highlighting**: Enhanced code blocks with language detection
 
-### `npm test`
+## 🔧 Project Structure
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+tech-and-beyond/
+├── public/
+│   ├── content/
+│   │   └── blog/           # Markdown blog articles
+│   └── index.html
+├── src/
+│   ├── components/         # Reusable UI components
+│   ├── pages/              # Page components
+│   ├── services/
+│   │   └── api/            # API integration services
+│   ├── utils/              # Utility functions
+│   │   └── markdown.ts     # Markdown processing
+│   └── App.tsx             # Main application component
+└── README.md
+```
 
-### `npm run build`
+## 💻 Getting Started
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Prerequisites
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Node.js (v14 or higher)
+- npm or yarn
+- Drupal instance with JSON:API enabled (optional for CMS features)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Installation
 
-### `npm run eject`
+1. Clone the repository:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+   ```
+   git clone https://github.com/TamaraJoniec/tech-and-beyond.git
+   cd tech-and-beyond
+   ```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. Install dependencies:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+   ```
+   npm install
+   ```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+3. Start the development server:
 
-## Learn More
+   ```
+   npm start
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+4. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Drupal Integration
+
+For the Drupal CMS features to work, you need a Drupal instance with:
+
+- JSON:API module enabled
+- Article content type with appropriate fields
+- CORS properly configured to allow requests from your frontend
+
+The application will fallback to showing only markdown posts if the Drupal API is unavailable.
+
+## 📝 Content Management
+
+### Markdown Articles
+
+Static blog posts are stored as markdown files in `public/content/blog/`. Each file includes frontmatter with metadata:
+
+```markdown
+---
+title: Article Title
+slug: article-slug
+date: DD/MM/YYYY
+excerpt: Brief description of the article
+coverImage: URL to cover image
+author: Author Name
+---
+
+Article content in markdown...
+```
+
+### Drupal Articles
+
+Content managed in Drupal is fetched via the JSON:API endpoint and displayed alongside markdown content.
+
+## 👥 About the Creators
+
+Tech & Beyond is created and maintained by Mike and Tamara Joniec:
+
+- **Mike Lamprakis**: Backend Developer specializing in Java
+- **Tamara Joniec**: Junior Frontend Developer focused on React
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+---
+
+_Note: This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app)._
