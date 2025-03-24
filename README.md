@@ -2,7 +2,7 @@
 
 A modern, responsive blog platform showcasing web development articles and tutorials. Tech & Beyond is a passion project by Mike and Tamara Joniec, featuring content on both frontend and backend development.
 
-![Tech & Beyond Blog](./public/demo.gif)
+![Tech & Beyond Blog](public/demo.png)
 
 ## 🌟 Features
 
@@ -115,7 +115,3 @@ Tech & Beyond is created and maintained by Mike and Tamara Joniec:
 ## 📄 License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
-
----
-
-_Note: This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app)._
