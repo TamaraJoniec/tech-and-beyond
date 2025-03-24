@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
-import { getAllPosts, BlogPost as MarkdownBlogPost } from "../utils/markdown";
+import { getAllPosts } from "../utils/markdown";
 
 // Blog post interface for consistency
 interface BlogPost {
